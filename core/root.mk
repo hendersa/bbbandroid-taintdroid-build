@@ -39,7 +39,7 @@ u-boot_clean:
 	$(MAKE) -C u-boot ARCH=arm CROSS_COMPILE=$(CC_PREFIX) distclean
 
 # Make a tarball for the filesystem
-fs_tarball:
+fs_tarball: $(FS_GET_STATS)
 	rm -rf $(ANDROID_FS_DIR)
 	mkdir $(ANDROID_FS_DIR)
 	cp -r $(ANDROID_INSTALL_DIR)/out/target/product/$(TARGET_PRODUCT)/root/* $(ANDROID_FS_DIR)
